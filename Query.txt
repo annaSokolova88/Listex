@@ -1,0 +1,4 @@
+ 1) Сколько товаров в базе данных, которым не прописана не одна из категорий (товары без категорий). 
+SELECT `Name` FROM `Lst_Goods` WHERE NOT EXISTS (SELECT * FROM `Lst_GoodsToCat` WHERE `Lst_GoodsToCat`.`GoodId` = `Lst_Goods`.`GoodId`)
+ 2) Вывести все названия категорий, в которых 0 товаров.
+SELECT `Name` FROM `Lst_Cat` WHERE NOT EXISTS (SELECT * FROM `Lst_GoodsToCat` WHERE `Lst_GoodsToCat`.`CatId` = `Lst_Cat`.`CatId`)
